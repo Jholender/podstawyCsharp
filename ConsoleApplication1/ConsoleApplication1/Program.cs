@@ -10,15 +10,28 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Cześć, jak masz na imię?");
-            string imie;
-                imie = Console.ReadLine();
-            Console.WriteLine("Ile masz lat?");
-                string wiek;
-            wiek = Console.ReadLine();
-
-            Console.WriteLine("Masz na imię " + imie + " i masz" + wiek + " lat");
+            
+            int l1;
+            do {
+                Console.WriteLine("Podaj minimum zakresu losowanych liczb:");
+            } while (!((int.TryParse(Console.ReadLine(), out l1))));
+             
+            
+            int l2;
+            do
+            {
+                Console.WriteLine("Podaj maximum zakresu losowanych liczb:");
+            } while (!((int.TryParse(Console.ReadLine(), out l2))));
+            
+            Random rnd = new Random();
+            int liczba1 = rnd.Next(l1, l2);
+            int liczba2 = rnd.Next(l1, l2);
+            Console.WriteLine("Wylosowałem: " + liczba1);
+            Console.WriteLine("Wylosowałem: " + liczba2);
+            Console.WriteLine("Suma tych liczb "+ (liczba1 + liczba2));
             Console.ReadLine();
+
+            
         }
     }
 }
